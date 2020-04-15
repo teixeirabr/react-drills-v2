@@ -8,7 +8,7 @@ export default class Todo extends Component {
   }
 
   render() {
-    console.log(this.props.input);
+    // console.log(this.props);
     return (
       <div>
         <h1>{this.props.e}</h1>

@@ -29,10 +29,16 @@ export default class App extends Component {
     let displayName = this.state.list.map((e, i) => {
       return <Todo key={i} e={e} />;
     });
+
     return (
       <div className="App">
         <h1>My to-do list:</h1>
-        <input type="text" name={"input"} onChange={this.handleChanger} />
+        <input
+          type="text"
+          name={"input"}
+          onChange={this.handleChanger}
+          placeholder="enter new task"
+        />
         <button onClick={this.handleAddTask}>Add</button>
         {displayName}
         <Todo input={this.state.input} />
