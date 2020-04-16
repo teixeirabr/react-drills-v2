@@ -7,18 +7,16 @@ class NewTask extends Component {
     this.state = {
       input: "",
     };
-
-    this.handleAdd = this.handleAdd.bind(this);
   }
 
-  handleInputChange(value) {
-    this.setState({ input: value });
-  }
+  handleInputChange = (e) => {
+    this.setState({ input: e.target.value });
+  };
 
-  handleAdd() {
+  handleAdd = () => {
     this.props.add(this.state.input);
     this.setState({ input: "" });
-  }
+  };
 
   render() {
     return (
@@ -26,7 +24,7 @@ class NewTask extends Component {
         <input
           value={this.state.input}
           placeholder="Enter new task"
-          onChange={(e) => this.handleInputChange(e.target.value)}
+          onChange={this.handleInputChange}
         />
 
         <button onClick={this.handleAdd}>Add</button>

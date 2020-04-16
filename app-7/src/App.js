@@ -12,12 +12,12 @@ class App extends Component {
       list: [],
     };
 
-    this.handleAddTask = this.handleAddTask.bind(this);
+    // this.handleAddTask = this.handleAddTask.bind(this);
   }
 
-  handleAddTask(task) {
+  handleAddTask = (task) => {
     this.setState({ list: [...this.state.list, task] });
-  }
+  };
 
   render() {
     return (
