@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import axios from "axios";
+import "./App.css";
+export default class App extends Component {
+  constructor(props) {
+    super(props);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    this.state = {
+      planets: "",
+    };
+  }
+
+  componentDidMount() {
+    axios.get(`https://swapi.py4e.com/api/planets/3/`).then((res) => {
+      this.setState({
+        planets: res.data,
+      });
+      console.log(res.data);
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Planet Name: {this.state.planets.name}</h1>
+        <h1>Rotation Period: {this.state.planets.rotation_period}</h1>
+        <h1>Climate: {this.state.planets.climate}</h1>
+      </div>
+    );
+  }
 }
-
-export default App;
